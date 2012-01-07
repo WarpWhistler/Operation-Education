@@ -1,0 +1,29 @@
+from sys import exit
+from string import *
+p = '> '
+
+def dead(why):
+    print why, 'Genius!'
+    exit(0) 
+
+def cell():
+    print "You awake in a concrete cell, without a memory in the world."
+    print "You notice a rough patch of wall above the wadded rag meant to serve as your pillow."
+    print "Investigate?"
+    
+    next = raw_input(p)
+    if 'yes' in lower(next):
+        print "Clay comes apart in your fingers, revealing a silvery key!"
+        print "Use key on cell door?"
+        next = raw_input(p)
+        if 'yes' in lower(next):
+            print "The lock clicks and the door swings open smoothly."
+            exit()
+            #zombie()
+    
+    else:
+        dead("Deplorable lack of curiosity killed the cat this time. You wait about a month to see another living soul and when none arrives, you promptly starve to death.")
+        
+        
+
+      
