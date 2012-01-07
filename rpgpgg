@@ -2,6 +2,10 @@ from sys import exit
 from string import *
 p = '> '
 
+def bitten():
+    global bitten
+    bitten = True
+
 def dead(why):
     print why, 'Genius!'
     exit(0) 
@@ -12,18 +16,35 @@ def cell():
     print "Investigate?"
     
     next = raw_input(p)
+    
     if 'yes' in lower(next):
         print "Clay comes apart in your fingers, revealing a silvery key!"
-        print "Use key on cell door?"
-        next = raw_input(p)
-        if 'yes' in lower(next):
-            print "The lock clicks and the door swings open smoothly."
-            exit()
-            #zombie()
+        print "You somehow know that this must be the key to your cell. Which it is." 
+        print "The key turns easily in the lock and the door slowly swings open."
+        zombie()
     
     else:
         dead("Deplorable lack of curiosity killed the cat this time. You wait about a month to see another living soul and when none arrives, you promptly starve to death.")
         
-        
-
-      
+def zombie():
+    print "You stumble out of your dank cell and make your way down the torchlit corridor."
+    print '.' * 18
+    print 'A wild Zombie appears!!'
+    print 'Your strangely mnemonic zombie defense teacher in high school taught you that your three options when facing a zombie are: 1. Sneak by it. 2. Attack the zombie. 3. Mimic the zombie and hope to pass through unnoticed. What do you choose? 1, 2 or 3?'
+    
+    next = raw_input(p)
+    
+    if '1' in next:
+        print "You tiptoe towards the door on the far side of yonder zombie. Everything seems to be going well until you open the door and the rusty hinges alert our undead friend to your presence. As you flee through the door the zombie bites you on the hand, but is unable to further impede your progress. Congrats!"
+        bitten()
+        dead('success, kinda') # "placeholder for next room's function call" 
+    
+    elif '2' in next:
+        dead("You do your best William Wallace-as-Jedi battle yell and rush the zombie, fury igniting your eyes into gleaming sparks of rage that pierce the gloom. While dramatic and undoubtedly cool, the zombie does not react to your warcry. After landing a haymaker on its chin, the zombie falls on top of you and eats your face off before proceding to tastier bits.")
+    
+    elif '3' in next:
+        print "Apparently you missed your calling as a thespian. Your mimcry is flawless, no doubt as a result of endless viewings of old Romero movies and the zombie seems briefly warmed by undead companionship until you shamble through the door on the other side of him."
+        dead('yay') # ""
+                
+            
+    
